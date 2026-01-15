@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-sage: #7a8e61;
+  --color-cream: #fdfcf9;
+  --color-terracotta: #de6848;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(135deg, #fdfcf9 0%, #f6f7f4 50%, #faf7f0 100%);
+  min-height: 100vh;
+  color: #353f2d;
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f6f7f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b6c2a4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #95a77d;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Smooth transitions */
+.transition-all-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Upload area animations */
+.upload-area {
+  background: linear-gradient(135deg, rgba(246, 247, 244, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%);
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(122, 142, 97, 0.1);
+}
+
+.upload-area.dragover {
+  border-color: #7a8e61;
+  background: linear-gradient(135deg, rgba(232, 235, 227, 0.9) 0%, rgba(246, 247, 244, 0.9) 100%);
+}
+
+/* Prakriti card styles */
+.prakriti-vata {
+  background: linear-gradient(135deg, #e8f4f8 0%, #f0f9ff 100%);
+  border-left: 4px solid #45b7d1;
+}
+
+.prakriti-pitta {
+  background: linear-gradient(135deg, #fef3e2 0%, #fff9f0 100%);
+  border-left: 4px solid #f5a623;
+}
+
+.prakriti-kapha {
+  background: linear-gradient(135deg, #e8f5e8 0%, #f0faf0 100%);
+  border-left: 4px solid #7a8e61;
+}
+
+/* Animated gradient background */
+.animated-gradient {
+  background: linear-gradient(-45deg, #f6f7f4, #faf7f0, #f0f9ff, #fef3e2);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid rgba(122, 142, 97, 0.2);
+  border-top: 3px solid #7a8e61;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Progress bar animation */
+.progress-bar {
+  animation: progressAnimation 2s ease-in-out;
+}
+
+@keyframes progressAnimation {
+  0% { width: 0%; }
+}
