@@ -136,6 +136,45 @@ const result = await response.json();
 - **ML**: PyTorch, torchvision, ResNet50
 - **Image Processing**: Pillow
 
+## 🚀 Deployment on Render
+
+### Backend Deployment (Web Service)
+
+1. Go to [Render Dashboard](https://dashboard.render.com) and sign up/login
+2. Click **New +** → **Web Service**
+3. Connect your GitHub repository: `ankitraj8042/Prakriti-Classification-ML-DL-Project`
+4. Configure the service:
+   - **Name**: `prakriti-backend` (or your choice)
+   - **Root Directory**: `backend`
+   - **Environment**: `Python 3`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `gunicorn app:app`
+   - **Instance Type**: Free
+5. Click **Create Web Service**
+6. **Copy the deployed URL** (e.g., `https://prakriti-backend.onrender.com`) - you'll need this for the frontend
+
+### Frontend Deployment (Static Site)
+
+1. Go to [Render Dashboard](https://dashboard.render.com)
+2. Click **New +** → **Static Site**
+3. Connect your GitHub repository: `ankitraj8042/Prakriti-Classification-ML-DL-Project`
+4. Configure the site:
+   - **Name**: `prakriti-frontend` (or your choice)
+   - **Root Directory**: `frontend`
+   - **Build Command**: `npm install && npm run build`
+   - **Publish Directory**: `dist`
+5. Add **Environment Variable**:
+   - **Key**: `VITE_API_URL`
+   - **Value**: Your backend URL from step 6 (e.g., `https://prakriti-backend.onrender.com`)
+6. Click **Create Static Site**
+
+### Important Notes for Deployment
+
+- ⏱️ The backend will sleep after 15 minutes of inactivity on free tier
+- 🚀 First request after sleep may take 30-60 seconds
+- 📦 Make sure the model file `resnet50_tongue_augmented.pth` is in the root directory
+- 🔗 CORS is configured to accept requests from any origin
+
 ## ⚠️ Disclaimer
 
 This application is for educational and informational purposes only. The AI-based analysis should not be considered as medical advice. Always consult a qualified Ayurvedic practitioner or healthcare professional for personalized health recommendations.

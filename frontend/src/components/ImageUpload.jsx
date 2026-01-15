@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from 'react'
 import { Upload, Image, X, AlertCircle, Camera } from 'lucide-react'
 import axios from 'axios'
+import { API_URL } from '../config'
 
 function ImageUpload({ onPrediction, isLoading, setIsLoading, error, setError }) {
   const [selectedImage, setSelectedImage] = useState(null)
@@ -62,7 +63,7 @@ function ImageUpload({ onPrediction, isLoading, setIsLoading, error, setError })
     formData.append('image', selectedImage)
 
     try {
-      const response = await axios.post('/api/predict', formData, {
+      const response = await axios.post(`${API_URL}/api/predict`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
